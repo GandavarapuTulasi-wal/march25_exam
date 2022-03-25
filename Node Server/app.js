@@ -6,8 +6,6 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var connectionRouter = require('./routes/connect');
-var todosRouter = require('./routes/todomysql');
-var authorsRouter = require('./routes/author');
 var usersRouter = require('./routes/user');
 
 const { default: mongoose } = require('mongoose');
@@ -39,9 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/todos', todosRouter);
 app.use('/mysql', connectionRouter);
-app.use('/authors', authorsRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
